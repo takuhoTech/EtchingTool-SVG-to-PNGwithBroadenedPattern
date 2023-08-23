@@ -74,7 +74,9 @@ cv2.imwrite("raw.png",img)
 img = crop(img)
 cv2.imwrite("in.png",img)
 
-kernel = np.ones((17, 17), np.uint8)
+value = int(sys.argv[2])
+
+kernel = np.ones((value, value), np.uint8)
 dilation = cv2.erode(img, kernel, iterations=1)
 out = cv2.bitwise_not(dilation)
 cv2.imwrite('./out.png', out)
